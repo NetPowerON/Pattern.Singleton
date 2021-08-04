@@ -1,0 +1,79 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31105.61
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_build", "_build", "{48D06F01-F809-4742-A8FF-72C7C557721E}"
+	ProjectSection(SolutionItems) = preProject
+		..\azure-pipelines.yml = ..\azure-pipelines.yml
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		..\nuget-pipelines.yml = ..\nuget-pipelines.yml
+		nuget.config = nuget.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_info", "_info", "{75843AD7-7EAB-4145-AB22-E5CDD3B41745}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+		..\doc\notes.txt = ..\doc\notes.txt
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1_Applications", "1_Applications", "{BC189B6C-482C-497D-95DB-C4CC66ED076A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2_Library", "2_Library", "{7671A3D6-AB36-4BC3-BC81-EBB30B1F0AEE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4_test", "4_test", "{2BF1AE6B-52D4-406F-8EFF-84391489CD26}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetPowerON.Pattern.Singleton", "NetPowerON.Pattern.Singleton\NetPowerON.Pattern.Singleton.csproj", "{F9C2388B-5A27-45CC-A5FC-58636CDB7115}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetPowerON.Pattern.Singleton.Test", "NetPowerON.Pattern.Singleton.Test\NetPowerON.Pattern.Singleton.Test.csproj", "{20D77A83-EB46-4629-A3D7-846951C77CC6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F9C2388B-5A27-45CC-A5FC-58636CDB7115}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9C2388B-5A27-45CC-A5FC-58636CDB7115}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9C2388B-5A27-45CC-A5FC-58636CDB7115}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F9C2388B-5A27-45CC-A5FC-58636CDB7115}.Debug|x64.Build.0 = Debug|Any CPU
+		{F9C2388B-5A27-45CC-A5FC-58636CDB7115}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F9C2388B-5A27-45CC-A5FC-58636CDB7115}.Debug|x86.Build.0 = Debug|Any CPU
+		{F9C2388B-5A27-45CC-A5FC-58636CDB7115}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9C2388B-5A27-45CC-A5FC-58636CDB7115}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9C2388B-5A27-45CC-A5FC-58636CDB7115}.Release|x64.ActiveCfg = Release|Any CPU
+		{F9C2388B-5A27-45CC-A5FC-58636CDB7115}.Release|x64.Build.0 = Release|Any CPU
+		{F9C2388B-5A27-45CC-A5FC-58636CDB7115}.Release|x86.ActiveCfg = Release|Any CPU
+		{F9C2388B-5A27-45CC-A5FC-58636CDB7115}.Release|x86.Build.0 = Release|Any CPU
+		{20D77A83-EB46-4629-A3D7-846951C77CC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20D77A83-EB46-4629-A3D7-846951C77CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20D77A83-EB46-4629-A3D7-846951C77CC6}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{20D77A83-EB46-4629-A3D7-846951C77CC6}.Debug|x64.Build.0 = Debug|Any CPU
+		{20D77A83-EB46-4629-A3D7-846951C77CC6}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{20D77A83-EB46-4629-A3D7-846951C77CC6}.Debug|x86.Build.0 = Debug|Any CPU
+		{20D77A83-EB46-4629-A3D7-846951C77CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20D77A83-EB46-4629-A3D7-846951C77CC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20D77A83-EB46-4629-A3D7-846951C77CC6}.Release|x64.ActiveCfg = Release|Any CPU
+		{20D77A83-EB46-4629-A3D7-846951C77CC6}.Release|x64.Build.0 = Release|Any CPU
+		{20D77A83-EB46-4629-A3D7-846951C77CC6}.Release|x86.ActiveCfg = Release|Any CPU
+		{20D77A83-EB46-4629-A3D7-846951C77CC6}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F9C2388B-5A27-45CC-A5FC-58636CDB7115} = {7671A3D6-AB36-4BC3-BC81-EBB30B1F0AEE}
+		{20D77A83-EB46-4629-A3D7-846951C77CC6} = {2BF1AE6B-52D4-406F-8EFF-84391489CD26}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F86A48FA-94C7-44FC-AE14-629E7770A323}
+	EndGlobalSection
+EndGlobal

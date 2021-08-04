@@ -1,0 +1,28 @@
+trigger:
+- master
+
+resources:
+- repo: self
+pool:
+  name: default
+
+variables:
+  - group: 'Feed'
+  
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet pack'
+  inputs:
+    command: pack
+    packagesToPack: '**/NetPowerON.*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: "ProvisionPushProjects"
+  inputs:
+    command: custom
+    custom: nuget
+    arguments: >
+      push "$(Build.ArtifactStagingDirectory)\NetPowerON.*.nupkg"
+      --source "$(Feed.DevNugetFeed)"
+      --api-key "$(Feed.DevNugetFeed.ApiKey)"
+      --skip-duplicate

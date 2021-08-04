@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project>
+   <PropertyGroup>
+    <VersionCount>4</VersionCount>
+    <PackageVersionPrefix>0.0.0</PackageVersionPrefix>
+    <PackageVersion>0.0.0.$(VersionCount)</PackageVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <LangVersion>9.0</LangVersion>
+    <TargetFrameworks>netstandard1.6;</TargetFrameworks>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Authors>Darren King</Authors>
+    <Company>NetPowerON Corp.</Company>
+    <Description>Common Design Patterns Library</Description>
+    <Copyright>2021</Copyright>
+  </PropertyGroup>
+</Project>

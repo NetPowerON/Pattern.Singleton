@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>$(TargetFrameworks)</TargetFrameworks>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <Description>Singleton base class library for creating differentiated Singleton object patterns</Description>
+    <RepositoryUrl>https://github.com/NetPowerON/Pattern.Singleton</RepositoryUrl>
+  </PropertyGroup>
+
+</Project>

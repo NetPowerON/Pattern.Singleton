@@ -1,0 +1,27 @@
+trigger:
+- nuget_release
+
+resources:
+- repo: self
+pool:
+  name: default
+
+variables:
+  - group: 'Feed'
+  
+steps:
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet pack'
+  inputs:
+    command: pack
+    packagesToPack: '**/NetPowerON.Pattern.*.csproj'
+
+- task: DotNetCoreCLI@2
+  displayName: "ProvisionPushProjects"
+  inputs:
+    command: custom
+    custom: nuget
+    arguments: >
+      push "$(Build.ArtifactStagingDirectory)\NetPowerON.Pattern.*.nupkg"
+      --source "https://api.nuget.org/v3/index.json"
+      --api-key "$(Feed.Nuget.ApiKey)"
