@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
    <PropertyGroup>
-    <VersionCount>4</VersionCount>
+    <VersionCount>5</VersionCount>
     <PackageVersionPrefix>0.0.0</PackageVersionPrefix>
-    <PackageVersion>0.0.0.$(VersionCount)</PackageVersion>
+    <PackageVersion>$(PackageVersionPrefix).$(VersionCount)</PackageVersion>
   </PropertyGroup>
 
   <PropertyGroup>

@@ -4,14 +4,14 @@ using System.Collections.Concurrent;
 
 namespace NetPowerON.Pattern.Singleton
 {
-    public abstract class SingletonObjectBase<TClass, TObject> : AbstractSingletonBase
-        where TClass : SingletonObjectBase<TClass, TObject>
+    public abstract class SingletonObjectBase<TSelf, TObject> : AbstractSingletonBase
+        where TSelf : SingletonObjectBase<TSelf, TObject>
         where TObject : class
     {
-        private static readonly ConcurrentDictionary<TObject, SingletonFactory<TClass, TObject>>
+        private static readonly ConcurrentDictionary<TObject, SingletonFactory<TSelf, TObject>>
             _concurrentMap = new( );
 
-        private static SingletonFactory<TClass, TObject>?
+        private static SingletonFactory<TSelf, TObject>?
             _nullFactory;
 
         public virtual TObject? Item
@@ -20,12 +20,12 @@ namespace NetPowerON.Pattern.Singleton
             private set;
         }
 
-        public static TClass Create( TObject? item = null )
+        public static TSelf Create( TObject? item = null )
         {
             return GetFactory( item ).Create( item );
         }
 
-        public static TClass Create(TClass replacing, TObject item)
+        public static TSelf Create(TSelf replacing, TObject item)
         {
             if( replacing is null )
             {
@@ -35,7 +35,7 @@ namespace NetPowerON.Pattern.Singleton
             return Create( item );
         }
 
-        protected static void Remove( SingletonObjectBase<TClass, TObject> singleton )
+        protected static void Remove( SingletonObjectBase<TSelf, TObject> singleton )
         {
             if( singleton is null )
             {
@@ -49,22 +49,22 @@ namespace NetPowerON.Pattern.Singleton
             }
         }
 
-        private static SingletonFactory<TClass, TObject> GetFactory( TObject? item )
+        private static SingletonFactory<TSelf, TObject> GetFactory( TObject? item )
         {
             if( item is null )
             {
                 if( _nullFactory is null )
                 {
-                    _nullFactory = new SingletonFactory<TClass, TObject>( obj => ( TClass )Activator.CreateInstance( typeof( TClass ), true ) );
+                    _nullFactory = new SingletonFactory<TSelf, TObject>( obj => ( TSelf )Activator.CreateInstance( typeof( TSelf ), true ) );
                 }
                 return _nullFactory;
             }
-            SingletonFactory<TClass, TObject> factory;
+            SingletonFactory<TSelf, TObject> factory;
             var map = _concurrentMap;
             if( !map.TryGetValue( item, out factory ) )
             {
-                factory = new SingletonFactory<TClass, TObject>( obj => {
-                    var tc = ( TClass )Activator.CreateInstance( typeof( TClass ), true );
+                factory = new SingletonFactory<TSelf, TObject>( obj => {
+                    var tc = ( TSelf )Activator.CreateInstance( typeof( TSelf ), true );
                     if( obj is not null )
                     {
                         tc.Item = obj;

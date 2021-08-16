@@ -3,21 +3,21 @@ using System;
 
 namespace NetPowerON.Pattern.Singleton
 {
-    internal class SingletonFactory<TClass, TParam> : SingletonFactoryBase<TClass>
-        where TClass : class, IDisposable
+    internal class SingletonFactory<TSelf, TParam> : SingletonFactoryBase<TSelf>
+        where TSelf : class, IDisposable
         where TParam : class
     {
-        private                 TClass?                 _internalInstance;
-        private     readonly    Func<TParam?, TClass>   _creator;
+        private                 TSelf?                 _internalInstance;
+        private     readonly    Func<TParam?, TSelf>   _creator;
 
-        public SingletonFactory( Func<TParam?, TClass> creator ) => _creator = creator;
+        public SingletonFactory( Func<TParam?, TSelf> creator ) => _creator = creator;
 
-        public override TClass Create( )
+        public override TSelf Create( )
         {
             return Create( null );
         }
 
-        public TClass Create( TParam? param )
+        public TSelf Create( TParam? param )
         {
             if( _internalInstance is null )
             {

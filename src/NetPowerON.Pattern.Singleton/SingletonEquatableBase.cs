@@ -6,29 +6,29 @@ using System.Text;
 
 namespace NetPowerON.Pattern.Singleton
 {
-    public abstract class SingletonEquatableBase<TClass, TObject> : AbstractSingletonBase
-        where TClass : SingletonEquatableBase<TClass, TObject>
+    public abstract class SingletonEquatableBase<TSelf, TObject> : AbstractSingletonBase
+        where TSelf : SingletonEquatableBase<TSelf, TObject>
         where TObject : struct, IEquatable<TObject>
     {
-        private static readonly ConcurrentDictionary<TObject, SingletonFactory<TClass, object>>
+        private static readonly ConcurrentDictionary<TObject, SingletonFactory<TSelf, object>>
             _concurrentMap = new( );
-        private static SingletonFactory<TClass, object>? _defaultFactory;
+        private static SingletonFactory<TSelf, object>? _defaultFactory;
 
         private static  bool        _noKey      = false;
         private static  TObject     _key;
 
-        public static TClass Create( TObject key )
+        public static TSelf Create( TObject key )
         {
             _key = key;
             return GetFactory( key ).Create( );
         }
 
-        public static TClass Create( )
+        public static TSelf Create( )
         {
             if( _defaultFactory is null )
             {
                 _noKey = true;
-                _defaultFactory = new( tclass => ( TClass ) Activator.CreateInstance( typeof( TClass ), true ) );
+                _defaultFactory = new( tclass => ( TSelf ) Activator.CreateInstance( typeof( TSelf ), true ) );
             }
             return _defaultFactory.Create( );
         }
@@ -47,10 +47,10 @@ namespace NetPowerON.Pattern.Singleton
             
         }
 
-        private static SingletonFactoryBase<TClass> GetFactory( TObject key )
+        private static SingletonFactoryBase<TSelf> GetFactory( TObject key )
         {
-            return _concurrentMap.GetOrAdd( key, key => new SingletonFactory<TClass, object>(
-                tclass => ( TClass )Activator.CreateInstance( typeof( TClass ), true )
+            return _concurrentMap.GetOrAdd( key, key => new SingletonFactory<TSelf, object>(
+                tclass => ( TSelf )Activator.CreateInstance( typeof( TSelf ), true )
                 )
             );
         }

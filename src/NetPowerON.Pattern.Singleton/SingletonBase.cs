@@ -3,17 +3,17 @@ using System;
 
 namespace NetPowerON.Pattern.Singleton
 {
-    public abstract class SingletonBase<TClass> : AbstractSingletonBase
-        where TClass : SingletonBase<TClass>
+    public abstract class SingletonBase<TSelf> : AbstractSingletonBase
+        where TSelf : SingletonBase<TSelf>
     {
-        private static SingletonFactory<TClass, TClass> factory = new( obj => ( TClass )Activator.CreateInstance( typeof( TClass ), true ) );
+        private static SingletonFactory<TSelf, TSelf> factory = new( obj => ( TSelf )Activator.CreateInstance( typeof( TSelf ), true ) );
         
-        public static TClass Create( )
+        public static TSelf Create( )
         {
             return GetFactory( ).Create( );
         }
 
-        private static SingletonFactory<TClass, TClass> GetFactory( )
+        private static SingletonFactory<TSelf, TSelf> GetFactory( )
         {
             return factory;
         }
