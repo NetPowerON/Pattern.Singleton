@@ -1,9 +1,9 @@
 Singleton
 =========
 
-<p>When you don't have a Inversion of Control container in your application but still would like to have singleton objects that hold state often developers would turn to a static class. While this will work it's not an extendable solution.</p>
+<p>When you don't have a Inversion of Control container in your application but still would like to have singleton objects to hold state. Often developers would turn to a static class. While this will work it's not an extendable solution.</p>
 
-<p>This project was developed to fill a need where updating a code base that either can't use dependency injection or didn't implament it at the start and the code base has grown too large to refactor in a timely fashion.</p>
+<p>This small library was developed to fill a need where updating a code base that either can't use dependency injection or didn't implement it at the start and the code base has grown too large to refactor in a timely fashion.</p>
 
 There are three base classes that you can inherit your Singleton Object class from.
 
@@ -17,7 +17,7 @@ SingletonObjectBase
 Usage
 -----
 
-    public MySingletonClass : SingletoBase<MySingletonClass>
+    public MySingletonClass : SingletonBase<MySingletonClass>
     {
 
     }
